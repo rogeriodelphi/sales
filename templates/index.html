@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
-    </head>
-    <body>
-        <h1>Minha Primeira página Web</h1>
-        {% block content%}
-            <ul>
-                {% if categories %}
-                    {% for category in categories %}
-                        <li>{{ category.id }} - {{ category.name }}</li>
-                    {% endfor %}
-                {% else %}
-                    <p>Não há categoria(s) para ser(em) exibida(s)!</p>
-                {%  endif %}
-            </ul>
-        {% endblock content%}
+{% extends 'home.mtml' %}
 
-        Olá,  {{ name }}
-
-    </body>
-</html>
+{% block content %}
+    <p>Olá!</p>
+{% endblock content%}

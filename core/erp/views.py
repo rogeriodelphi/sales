@@ -4,7 +4,7 @@ from core.erp.models import Category, Product
 
 
 def myfirstview(request):
-    template_name = 'index.html'
+    template_name = 'home.html'
     data = {
         'name': 'Rogerio Martins',
         'categories': Category.objects.all()
