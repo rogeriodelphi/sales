@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <a href="{% url 'erp:vista1' %}">Voltar ao Index</a>
+
+    <ul>
+        {% if products %}
+            {% for product in products %}
+                <li>{{ product.id }} - {{ product.name }} - {{ product.cate.name }}</li>
+            {% endfor %}
+        {% else %}
+            <p>Não há produtos cadastrado(s) para ser(em) exibido(s)!</p>
+        {%  endif %}
+    </ul>
+{% endblock content %}
