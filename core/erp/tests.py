@@ -1,6 +1,4 @@
-from config.wsgi import *
-
-from core.erp.models import Type, Employee
+# from core.erp.models import Type
 
 # Listar
 # query = Type.objects.all()
@@ -58,5 +56,5 @@ from core.erp.models import Type, Employee
 
 # obj = Employee.objects.filter(type__id=1)
 
-for i in Type.objects.filter(name__contains='a')[:3]:
-    print(i.name)
+# for i in Type.objects.filter(name__contains='a')[:3]:
+#     print(i.name)
