@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from django.db import models
+from django.forms import model_to_dict
 
 from core.erp.choices import gender_choices
 
@@ -10,6 +11,11 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+    def toJSON(self):
+        item = model_to_dict(self)
+        model_to_dict
+        return item
 
     class Meta:
         db_table = 'Categoria'
