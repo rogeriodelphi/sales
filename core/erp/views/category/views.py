@@ -35,8 +35,7 @@ class CategoryListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Listagem e Categorias'
-        print((reverse_lazy('erp:category_list')))
+        context['title'] = 'Listado de Categorías'
         return context
 
 class CategoryCreateView(CreateView):
@@ -47,5 +46,5 @@ class CategoryCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Criar uma categoria'
+        context['title'] = 'Creación una Categoria'
         return context
