@@ -3,7 +3,7 @@ from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.utils.decorators import method_decorator
 
 from core.erp.forms import CategoryForm
@@ -111,9 +111,22 @@ class CategoryUpdateView(UpdateView):
         return JsonResponse(data)
 
     def get_context_data(self, **kwargs):
+
         context = super().get_context_data(**kwargs)
         context['title'] = 'Edición una Categoria'
         context['entity'] = 'Categorias'
         context['list_url'] = reverse_lazy('erp:category_list')
         context['action'] = 'edit'
+        return context
+
+class CategoryDeleteView(DeleteView):
+    model = Category
+    template_name = 'category/delete.html'
+    success_url = reverse_lazy('erp:category_list')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Eliminación de una Categoria'
+        context['entity'] = 'Categorias'
+        context['list_url'] = reverse_lazy('erp:category_list')
         return context
