@@ -17,20 +17,16 @@ class CategoryForm(ModelForm):
         widgets = {
             'name': TextInput(
                 attrs={
-                    'placeholder': 'Insira um nome',
+                    'placeholder': 'Ingrese un nombre',
                 }
             ),
             'desc': Textarea(
                 attrs={
-                    'placeholder': 'Descreva a categoria',
-                    'autocomplete': 'off',
-                    'rows':3,
+                    'placeholder': 'Ingrese un nombre',
+                    'rows': 3,
                     'cols': 3
-
-
                 }
             ),
-
         }
 
     def save(self, commit=True):
