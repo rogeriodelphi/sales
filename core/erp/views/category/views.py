@@ -48,15 +48,28 @@ class CategoryCreateView(CreateView):
     success_url = reverse_lazy('erp:category_list')
 
     def post(self, request, *args, **kwargs):
-        print(request.POST)
-        form = CategoryForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(self.success_url)
-        self.object = None
-        context = self.get_context_data(**kwargs)
-        context['form'] = form
-        return render(request, self.template_name, context)
+        data = {}
+        try:
+            action = request.POST['action']
+            if action == 'add':
+                form = self.get_form()
+                data = form.save()
+            else:
+                data['error'] = 'Não há dados para essa opção'
+            # data = Category.objects.get(pk=request.POST['id']).toJSON()
+        except Exception as e:
+            data['error'] = str(e)
+        return JsonResponse(data)
+
+    #     print(request.POST)
+    #     form = CategoryForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+    #         return HttpResponseRedirect(self.success_url)
+    #     self.object = None
+    #     context = self.get_context_data(**kwargs)
+    #     context['form'] = form
+    #     return render(request, self.template_name, context)
 
 
 
@@ -65,4 +78,5 @@ class CategoryCreateView(CreateView):
         context['title'] = 'Creación una Categoria'
         context['entity'] = 'Categorias'
         context['list_url'] = reverse_lazy('erp:category_list')
+        context['action'] = 'add'
         return context
