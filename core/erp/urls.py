@@ -1,5 +1,7 @@
 from django.urls import path
-from core.erp.views.category.views import *
+
+from core.erp.views.category.views import CategoryCreateView, CategoryListView, category_list, CategoryUpdateView, \
+    CategoryDeleteView
 
 app_name = 'erp'
 

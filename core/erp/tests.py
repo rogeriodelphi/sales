@@ -20,7 +20,6 @@
 #     print('Guardado registro {}'.format(i))
 
 
-
 # from core.erp.models import Type
 
 # Listar

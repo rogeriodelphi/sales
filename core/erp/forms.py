@@ -1,4 +1,4 @@
-from django.forms import *
+from django.forms import Textarea, TextInput
 
 from core.erp.models import Category
 

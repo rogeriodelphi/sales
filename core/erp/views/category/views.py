@@ -1,10 +1,9 @@
-from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.http import JsonResponse
+from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.decorators.csrf import csrf_protect, csrf_exempt
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from core.erp.forms import CategoryForm
 from core.erp.models import Category
@@ -119,6 +118,7 @@ class CategoryUpdateView(UpdateView):
         context['action'] = 'edit'
         return context
 
+
 class CategoryDeleteView(DeleteView):
     model = Category
     template_name = 'category/delete.html'
@@ -135,7 +135,6 @@ class CategoryDeleteView(DeleteView):
         except Exception as e:
             data['error'] = str(e)
         return JsonResponse(data)
-
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
