@@ -1,4 +1,8 @@
 {% extends 'list.html' %}
+{% load static %}
+{% block head %}
+    <script src="{% static 'category/js/list.js' %}"></script>
+{% endblock %}
 
 {% block columns %}
     <tr>
@@ -25,4 +29,8 @@
             </td>
         </tr>
     {% endfor %}
+{% endblock %}
+
+{% block javascript %}
+
 {% endblock %}
