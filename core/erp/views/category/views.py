@@ -136,7 +136,7 @@ class CategoryFormView(FormView):
 
     def form_invalid(self, form):
         print(form.is_valid())
-        print(form)
+        print(form.errors)
         return super().form_invalid(form)
 
     def get_context_data(self, **kwargs):
